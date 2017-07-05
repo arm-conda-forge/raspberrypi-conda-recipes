@@ -1,10 +1,10 @@
 package:
   name: libpng
-  version: 1.5.13
+  version: 1.6.29
 
 source:
-  fn: libpng-1.5.13.tar.gz
-  url: http://sourceforge.net/projects/libpng/files/libpng15/1.5.23/libpng-1.5.23.tar.gz/download
+  fn: libpng-1.6.29.tar.gz
+  url: https://downloads.sourceforge.net/project/libpng/libpng16/1.6.29/libpng-1.6.29.tar.gz
 
 requirements:
   build:
