@@ -6,13 +6,13 @@ https://anaconda.org/RaspberryPi
 
 A selection of armv7l distributions (generated for building opencv3) are currently available at:
 
-http://anaconda.org/lisaong
+http://anaconda.org/microsoft-ell
 
 If you already have conda installed on the RaspberryPi (via the miniconda installer or otherwise), simply add the
 raspberrypi channel and run ``conda update --all``.
 
 To use custom channels, do:
-conda config --add channels channelname 
+conda config --add channels channelname
 
 Installing conda on the RaspberryPi
 -----------------------------------
@@ -22,3 +22,6 @@ For RaspberryPi 3, use: http://repo.continuum.io/miniconda/Miniconda3-latest-Lin
 
 A more up to date self extracting installer will be made available in due course (in this repo).
 
+Building packages
+-----------------
+Refer to the Anaconda documentation on how to build and upload packages: https://conda.io/docs/build_tutorials/pkgs2.html
