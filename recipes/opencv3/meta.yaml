@@ -1,0 +1,33 @@
+package:
+  name: opencv
+  version: "3.2.0"
+
+source:
+  fn: curl -L -O https://github.com/opencv/opencv/archive/3.2.0.tar.gz
+  url: https://github.com/opencv/opencv/archive/3.2.0.tar.gz
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+    - zlib 1.2.*
+    - libtiff 4.0.*
+    - numpy 1.9.*
+
+  run:
+    - python
+    - zlib 1.2.*
+    - libtiff 4.0.*
+    - numpy 1.9.*
+
+test:
+    imports:
+      - cv2
+
+about:
+  home: http://opencv.org/
+  license: BSD 3-clause
+  summary: Computer vision and machine learning software library.
+
