@@ -24,6 +24,11 @@ To manually update conda for armv6l to 3.19.0:
 2. `wget https://anaconda.org/RaspberryPi/conda/3.19.0/download/linux-armv6l/conda-3.19.0-py27_0.tar.bz2`
 3. `conda install conda-3.19.0-py27_0.tar.bz2`
 4. `conda --version` should now show 3.19.0. From this version, you can install packages from the RaspberryPi channel, i.e. `conda install -c raspberrypi foo`
+5. Last but not the least, since this was a manual update, the old version of conda (3.5.5) is not automatically removed. To simulate that, rename the .json metadata file. Otherwise, conda will uninstall itself when you call `conda install`, rendering the environment useless.
+   ```
+   cd ~/miniconda/conda-meta
+   mv conda-3.5.5-py27_0.json conda-3.5.5-py27_0.json.old
+   ```
 
 ### RaspberryPi 2 and 3 (armv7l)
 For RaspberryPi 3, use: http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh. The `RaspberryPi` channel only contains armv6l packages that were built sometime back. 
