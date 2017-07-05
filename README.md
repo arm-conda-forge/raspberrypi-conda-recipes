@@ -16,6 +16,7 @@ conda config --add channels channelname
 
 Installing conda on the RaspberryPi
 -----------------------------------
+### RaspberryPi 0 (armv6l)
 Currently there is an old-ish Miniconda installer for the RaspberryPi at http://repo.continuum.io/miniconda/Miniconda-3.5.5-Linux-armv6l.sh. The channel URL schema has changed since then, so accessing the `raspberrypi` channel won't work unless you manually update conda. 
 
 To manually update conda for armv6l to 3.19.0:
@@ -24,9 +25,8 @@ To manually update conda for armv6l to 3.19.0:
 3. conda install conda-3.19.0-py27_0.tar.bz2
 4. From there, you should be able to consume packages from the RaspberryPi channel, i.e. `conda install -c raspberrypi foo`
 
-For RaspberryPi 3, use: http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh.
-
-A more up to date self extracting installer will be made available in due course (in this repo).
+### RaspberryPi 2 and 3 (armv7l)
+For RaspberryPi 3, use: http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh. The `RaspberryPi` channel only has armv6l packages. The `microsoft-ell` channel contains some packages for installing OpenCV.  If you need more packages, it's fairly straightfoward to build your own (see the next section).
 
 Building packages
 -----------------
