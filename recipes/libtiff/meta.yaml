@@ -1,18 +1,18 @@
 package:
   name: libtiff
-  version: 4.0.2
+  version: 4.0.8
 
 source:
-  fn: tiff-4.0.2.tar.gz
-  url: ftp://ftp.remotesensing.org/pub/libtiff/tiff-4.0.2.tar.gz
-  md5: 04a08fa1e07e696e820a0c3f32465a13
+  fn: tiff-4.0.8.tar.gz
+  url: ftp://download.osgeo.org/pub/libtiff/tiff-4.0.8.tar.gz
+  md5: 2a7d1c1318416ddf36d5f6fa4600069b
 
 requirements:
   build:
     - zlib
-    - jpeg
+    - jpeg 9*
   run:
-    - jpeg
+    - jpeg 9*
 
 about:
-  home: http://www.libtiff.org/
+  home: http://www.simplesystems.org/libtiff/

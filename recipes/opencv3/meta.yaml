@@ -15,12 +15,18 @@ requirements:
     - zlib 1.2.*
     - libtiff 4.0.*
     - numpy 1.9.*
+    - libpng 1.6.*
+    - jpeg 9*
+    - jasper
 
   run:
     - python
     - zlib 1.2.*
     - libtiff 4.0.*
     - numpy 1.9.*
+    - libpng 1.6.*
+    - jpeg 9*
+    - jasper
 
 test:
     imports:

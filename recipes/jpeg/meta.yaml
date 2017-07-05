@@ -5,6 +5,7 @@ package:
 source:
   fn: jpegsrc.v9b.tar.gz
   url: http://download.openpkg.org/components/cache/jpeg/jpegsrc.v9b.tar.gz
+  md5: 6a9996ce116ec5c52b4870dbcd6d3ddb
 
 about:
   home: http://www.ijg.org/
