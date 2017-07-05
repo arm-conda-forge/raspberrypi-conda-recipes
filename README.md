@@ -1,18 +1,12 @@
 About
 -----
-A repository of conda recipes for the RaspberryPi. All build distributions are available on binstar at:
+A repository of conda recipes for the RaspberryPi. All build (armv6l) distributions are available on binstar at:
 
 https://anaconda.org/RaspberryPi
 
 A selection of armv7l distributions (generated for building opencv3) are currently available at:
 
 https://anaconda.org/microsoft-ell
-
-If you already have conda installed on the RaspberryPi (via the miniconda installer or otherwise), simply add the
-raspberrypi channel and run ``conda update --all``.
-
-To use custom channels, do:
-conda config --add channels channelname
 
 Installing conda on the RaspberryPi
 -----------------------------------
@@ -23,13 +17,14 @@ To manually update conda for armv6l to 3.19.0:
 1. Run the 3.5.5 Miniconda installer
 2. `wget https://anaconda.org/RaspberryPi/conda/3.19.0/download/linux-armv6l/conda-3.19.0-py27_0.tar.bz2`
 3. `conda install conda-3.19.0-py27_0.tar.bz2`
-4. `conda --version` should now show 3.19.0. From this version, you can install packages from the RaspberryPi channel, i.e. `conda install -c raspberrypi foo`
+4. `conda --version` should now show 3.19.0.
 5. Last but not the least, since this was a manual update, the old version of conda (3.5.5) is not automatically removed. To simulate that, rename the .json metadata file. Otherwise, conda will uninstall itself when you call `conda install`, rendering the environment useless.
    ```
    cd ~/miniconda/conda-meta
    mv conda-3.5.5-py27_0.json conda-3.5.5-py27_0.json.old
    ```
-
+6. From here, you can install packages from the RaspberryPi channel and build your own packages, i.e. `conda install -c raspberrypi conda-build`
+ 
 ### RaspberryPi 2 and 3 (armv7l)
 For RaspberryPi 3, use: http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh. The `RaspberryPi` channel only contains armv6l packages that were built sometime back. 
 
