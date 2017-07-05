@@ -22,8 +22,6 @@ requirements:
 test:
   commands:
     - jasper --version
-    - conda inspect linkages -p $PREFIX jasper  # [not win]
-    - conda inspect objects -p $PREFIX jasper  # [osx]
 
 about:
   home: http://www.ece.uvic.ca/~frodo/jasper/
