@@ -23,7 +23,17 @@ To manually update conda for armv6l to 3.19.0:
    cd ~/miniconda/conda-meta
    mv conda-3.5.5-py27_0.json conda-3.5.5-py27_0.json.old
    ```
-6. From here, you can install packages from the RaspberryPi channel and build your own packages, i.e. `conda install -c raspberrypi conda-build`
+6. From here, you can install packages from the RaspberryPi channel and build your own packages, 
+
+To update conda-build:
+```
+conda install -c raspberrypi conda-build
+```
+
+To install Python 3:
+```
+conda install -c raspberrypi python=3
+```
  
 ### RaspberryPi 2 and 3 (armv7l)
 For RaspberryPi 3, use: http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh. The `RaspberryPi` channel only contains armv6l packages that were built sometime back. 
