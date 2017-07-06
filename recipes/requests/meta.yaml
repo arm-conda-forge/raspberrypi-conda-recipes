@@ -1,11 +1,11 @@
 package:
   name: requests
-  version: 2.0.1
+  version: 2.3.0
 
 source:
-  fn: requests-2.0.1.tar.gz
-  url: https://pypi.python.org/packages/source/r/requests/requests-2.0.1.tar.gz
-  md5: 38e61c2856d2ba2782286730241975e6
+  fn: requests-2.3.0.tar.gz
+  url: https://pypi.python.org/packages/source/r/requests/requests-2.3.0.tar.gz
+  md5: 7449ffdc8ec9ac37bbcd286003c80f00
 #  patches:
 #    - pyopenssl.patch
 

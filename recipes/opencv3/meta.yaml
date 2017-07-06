@@ -11,10 +11,11 @@ build:
 
 requirements:
   build:
+    # apt-get install cmake
     - python
     - zlib 1.2.*
     - libtiff 4.0.*
-    - numpy 1.9.*
+    - numpy x.x
     - libpng 1.6.*
     - jpeg 9*
     - jasper
@@ -23,7 +24,7 @@ requirements:
     - python
     - zlib 1.2.*
     - libtiff 4.0.*
-    - numpy 1.9.*
+    - numpy x.x
     - libpng 1.6.*
     - jpeg 9*
     - jasper
