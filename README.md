@@ -38,6 +38,16 @@ conda install -c raspberrypi python=3
 ### RaspberryPi 2 and 3 (armv7l)
 For RaspberryPi 3, use: http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh. The `RaspberryPi` channel only contains armv6l packages that were built sometime back. 
 
+```
+wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh
+chmod +x Miniconda3-latest-Linux-armv7l.sh
+./Miniconda3-latest-Linux-armv7l.sh
+<follow prompts to install, select `yes` when prompted to prepend the install location to PATH>
+source ~/.bashrc
+conda create --name py34 python=3
+source activate py34
+```
+
 More recently, the `microsoft-ell` channel has added a subset of packages.  If you need more packages, it's fairly straightfoward to build your own (see the next section).
 
 Building packages
