@@ -44,8 +44,7 @@ chmod +x Miniconda3-latest-Linux-armv7l.sh
 ./Miniconda3-latest-Linux-armv7l.sh
 <follow prompts to install, select `yes` when prompted to prepend the install location to PATH>
 source ~/.bashrc
-conda create --name py34 python=3
-source activate py34
+conda install conda-build
 ```
 
 More recently, the `microsoft-ell` channel has added a subset of packages.  If you need more packages, it's fairly straightfoward to build your own (see the next section).
@@ -53,3 +52,10 @@ More recently, the `microsoft-ell` channel has added a subset of packages.  If y
 Building packages
 -----------------
 Refer to the Anaconda documentation on how to build and upload packages: http://conda.io/docs/build_tutorials/pkgs2.html
+
+To build a specific package, e.g. opencv3
+```
+cd recipes
+<Ensure you are *not* within a conda environment>
+conda-build opencv3
+```
