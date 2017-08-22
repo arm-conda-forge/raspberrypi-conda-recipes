@@ -45,6 +45,7 @@ chmod +x Miniconda3-latest-Linux-armv7l.sh
 <follow prompts to install, select `yes` when prompted to prepend the install location to PATH>
 source ~/.bashrc
 conda install conda-build
+conda install jinja2
 ```
 
 More recently, the `microsoft-ell` channel has added a subset of packages.  If you need more packages, it's fairly straightfoward to build your own (see the next section).
@@ -53,9 +54,16 @@ Building packages
 -----------------
 Refer to the Anaconda documentation on how to build and upload packages: http://conda.io/docs/build_tutorials/pkgs2.html
 
-To build a specific package, e.g. opencv3
+To build a package, e.g. opencv3
 ```
 cd recipes
 <Ensure you are *not* within a conda environment>
 conda-build opencv3
+```
+
+To upload a package
+```
+conda install anaconda-client
+anaconda login --username yourusername
+anaconda upload /home/pi/miniconda3/conda-bld/linux-armv7l/yourpackage.tar.bz2
 ```
