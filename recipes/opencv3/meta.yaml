@@ -1,10 +1,10 @@
 package:
   name: opencv
-  version: "3.2.0"
+  version: "3.3.0"
 
 source:
-  fn: curl -L -O https://github.com/opencv/opencv/archive/3.2.0.tar.gz
-  url: https://github.com/opencv/opencv/archive/3.2.0.tar.gz
+  fn: curl -L -O https://github.com/opencv/opencv/archive/3.3.0.tar.gz
+  url: https://github.com/opencv/opencv/archive/3.3.0.tar.gz
 
 build:
   number: 0
@@ -15,7 +15,7 @@ requirements:
     - python
     - zlib 1.2.*
     - libtiff 4.0.*
-    - numpy x.x
+    - numpy 1.9.*
     - libpng 1.6.*
     - jpeg 9*
     - jasper
@@ -24,7 +24,7 @@ requirements:
     - python
     - zlib 1.2.*
     - libtiff 4.0.*
-    - numpy x.x
+    - numpy 1.9.*
     - libpng 1.6.*
     - jpeg 9*
     - jasper
