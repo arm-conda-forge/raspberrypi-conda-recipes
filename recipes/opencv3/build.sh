@@ -19,6 +19,42 @@ else
 fi
 
 
+
+MACHINE_TYPE=`uname -m`
+if [ ${MACHINE_TYPE} == 'armv7l' ]; then
+    SET_SIMD="-DENABLE_NEON=ON -DENABLE_VFPV3=ON"
+else
+    SET_SIMD=""
+fi
+
+
+
+# cd ../
+# mkdir build
+# cd build
+# export CFLAGS="-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard" # Notice here does not have -fPIC and -O3
+# export CXXFLAGS="-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard" # Notice here does not have -fPIC and -O3
+# cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr/local
+# -DINSTALL_C_EXAMPLES=OFF -DINSTALL_PYTHON_EXAMPLES=OFF
+# -DOPENCV_EXTRA_MODULES_PATH=<path_to_opencv_contrib-3.1.0>/modules
+# -DBUILD_EXAMPLES=ON
+# -DWITH_FFMPEG=OFF
+# -DWITH_V4L=OFF
+# -DWITH_LIBV4L=OFF
+# -DENABLE_NEON=ON
+# -DEXTRA_C_FLAGS=-mcpu=cortex-a7
+# -mfpu=neon-vfpv4 -ftree-vectorize
+# -mfloat-abi=hard
+# -DEXTRA_CXX_FLAGS=-mcpu=cortex-a7
+# -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard
+# -DWITH_JPEG=ON
+# -DBUILD_JPEG=OFF
+# -DJPEG_INCLUDE_DIR=/opt/libjpeg-turbo/include/
+# -DJPEG_LIBRARY=/opt/libjpeg-turbo/lib32/libjpeg.a ..
+# make -j2 # You can use -j4, but my gcc crashed with -j4, you can test by yourself
+
+PYHON_SET_LIBJPEGTURBO="-DJPEG_INCLUDE_DIR=${SP_DIR}/opt/libjpeg-turbo/include/"
+
 PYTHON_SET_FLAG="-DBUILD_opencv_python${PY_MAJOR}=1"
 PYTHON_SET_EXE="-DPYTHON${PY_MAJOR}_EXECUTABLE=${PYTHON}"
 PYTHON_SET_INC="-DPYTHON${PY_MAJOR}_INCLUDE_DIR=${INC_PYTHON} "
@@ -35,6 +71,9 @@ PYTHON_UNSET_SP="-DPYTHON${PY_UNSET_MAJOR}_PACKAGES_PATH="
 
 # FFMPEG building requires pkgconfig
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$PREFIX/lib/pkgconfig
+#
+# export CFLAGS="-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard"
+# export CXXFLAGS="-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard"
 
 mkdir -p build
 cd build
@@ -79,7 +118,8 @@ cmake .. -LAH                                                             \
     $PYTHON_UNSET_INC                                                     \
     $PYTHON_UNSET_NUMPY                                                   \
     $PYTHON_UNSET_LIB                                                     \
+    $SET_SIMD                                                             \
     $PYTHON_UNSET_SP
 
-make -j2
+make -j4
 make install
