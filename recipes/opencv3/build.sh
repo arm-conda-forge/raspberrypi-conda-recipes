@@ -53,7 +53,7 @@ fi
 # -DJPEG_LIBRARY=/opt/libjpeg-turbo/lib32/libjpeg.a ..
 # make -j2 # You can use -j4, but my gcc crashed with -j4, you can test by yourself
 
-PYHON_SET_LIBJPEGTURBO="-DJPEG_INCLUDE_DIR=${SP_DIR}/opt/libjpeg-turbo/include/"
+PYHON_SET_LIBJPEGTURBO="-DJPEG_INCLUDE_DIR=${SP_DIR}/libjpeg-turbo/include"
 
 PYTHON_SET_FLAG="-DBUILD_opencv_python${PY_MAJOR}=1"
 PYTHON_SET_EXE="-DPYTHON${PY_MAJOR}_EXECUTABLE=${PYTHON}"
@@ -80,8 +80,6 @@ cd build
 cmake .. -LAH                                                             \
     -DENABLE_NEON=1 \
     -DENABLE_VFPV3=1 \
-    -DEXTRA_C_FLAGS=-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard \
-    -DEXTRA_CXX_FLAGS=-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard \
     -DBUILD_TESTS=0                                                       \
     -DBUILD_DOCS=0                                                        \
     -DBUILD_PERF_TESTS=0                                                  \
