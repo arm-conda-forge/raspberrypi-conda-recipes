@@ -74,7 +74,6 @@ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$PREFIX/lib/pkgconfig
 #
 export CFLAGS="-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard"
 export CXXFLAGS="-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard"
-
 mkdir -p build
 cd build
 
@@ -119,8 +118,8 @@ cmake .. -LAH                                                             \
     $PYTHON_UNSET_NUMPY                                                   \
     $PYTHON_UNSET_LIB                                                     \
     $PYTHON_UNSET_SP                                                      \
-    -DENABLE_NEON=ON \
-    -DENABLE_VFPV3=ON \
+    -DENABLE_NEON=1 \
+    -DENABLE_VFPV3=1 \
     -DEXTRA_C_FLAGS=-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard \
     -DEXTRA_CXX_FLAGS=-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard
 
