@@ -78,6 +78,10 @@ mkdir -p build
 cd build
 
 cmake .. -LAH                                                             \
+    -DENABLE_NEON=1 \
+    -DENABLE_VFPV3=1 \
+    -DEXTRA_C_FLAGS=-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard \
+    -DEXTRA_CXX_FLAGS=-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard \
     -DBUILD_TESTS=0                                                       \
     -DBUILD_DOCS=0                                                        \
     -DBUILD_PERF_TESTS=0                                                  \
@@ -117,11 +121,7 @@ cmake .. -LAH                                                             \
     $PYTHON_UNSET_INC                                                     \
     $PYTHON_UNSET_NUMPY                                                   \
     $PYTHON_UNSET_LIB                                                     \
-    $PYTHON_UNSET_SP                                                      \
-    -DENABLE_NEON=1 \
-    -DENABLE_VFPV3=1 \
-    -DEXTRA_C_FLAGS=-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard \
-    -DEXTRA_CXX_FLAGS=-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard
+    $PYTHON_UNSET_SP
 
 make -j4
 make install
