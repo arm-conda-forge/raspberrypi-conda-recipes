@@ -122,7 +122,7 @@ cmake .. -LAH                                                             \
     -DENABLE_NEON=ON \
     -DENABLE_VFPV3=ON \
     -DEXTRA_C_FLAGS=-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard \
-    -DEXTRA_CXX_FLAGS=-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard"
+    -DEXTRA_CXX_FLAGS=-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard
 
 make -j4
 make install
