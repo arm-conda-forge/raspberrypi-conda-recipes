@@ -1,10 +1,13 @@
+{% set version = "3.3.0" %}
+
 package:
   name: opencv
-  version: "3.3.0"
+  version: {{ version }}
 
 source:
-  fn: curl -L -O https://github.com/opencv/opencv/archive/3.3.0.tar.gz
-  url: https://github.com/opencv/opencv/archive/3.3.0.tar.gz
+  fn: opencv-{{ version }}.tar.gz
+  url: https://github.com/opencv/opencv/archive/{{ version }}.tar.gz
+  sha256: 8bb312b9d9fd17336dc1f8b3ac82f021ca50e2034afc866098866176d985adc6
 
 build:
   number: 0
@@ -37,4 +40,3 @@ about:
   home: http://opencv.org/
   license: BSD 3-clause
   summary: Computer vision and machine learning software library.
-
