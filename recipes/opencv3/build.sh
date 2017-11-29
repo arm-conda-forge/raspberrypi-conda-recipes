@@ -20,14 +20,14 @@ fi
 
 #
 #
-# MACHINE_TYPE=`uname -m`
-# if [ ${MACHINE_TYPE} == 'armv7l' ]; then
-#     SET_SIMD="-DENABLE_NEON=ON -DENABLE_VFPV3=ON"
-# else
-#     SET_SIMD=""
-# fi
+MACHINE_TYPE=`uname -m`
+if [ ${MACHINE_TYPE} == 'armv7l' ]; then
+    SET_SIMD="-DENABLE_NEON=ON -DENABLE_VFPV3=ON"
+else
+    SET_SIMD=""
+fi
 
-
+echo "SPDIR=${SP_DIR}"
 
 # cd ../
 # mkdir build
@@ -54,6 +54,7 @@ fi
 # make -j2 # You can use -j4, but my gcc crashed with -j4, you can test by yourself
 
 PYHON_SET_LIBJPEGTURBO="-DJPEG_INCLUDE_DIR=${SP_DIR}/libjpeg-turbo/include"
+PYHON_SET_LIBJPEGTURBO="-DJPEG_LIBRARY=${SP_DIR}/libjpeg-turbo/lib/"
 
 PYTHON_SET_FLAG="-DBUILD_opencv_python${PY_MAJOR}=1"
 PYTHON_SET_EXE="-DPYTHON${PY_MAJOR}_EXECUTABLE=${PYTHON}"
@@ -72,14 +73,15 @@ PYTHON_UNSET_SP="-DPYTHON${PY_UNSET_MAJOR}_PACKAGES_PATH="
 # FFMPEG building requires pkgconfig
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$PREFIX/lib/pkgconfig
 #
-export CFLAGS="-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard"
-export CXXFLAGS="-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard"
+
 mkdir -p build
 cd build
 
 cmake .. -LAH                                                             \
     -DENABLE_NEON=1 \
     -DENABLE_VFPV3=1 \
+    -DWITH_JPEG=ON \
+    -DBUILD_JPEG=OFF \
     -DBUILD_TESTS=0                                                       \
     -DBUILD_DOCS=0                                                        \
     -DBUILD_PERF_TESTS=0                                                  \
