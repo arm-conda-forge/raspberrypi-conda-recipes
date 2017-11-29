@@ -20,7 +20,7 @@ requirements:
     - libtiff 4.0.*
     - numpy 1.9.*
     - libpng 1.6.*
-    - jpeg 9*
+    - libjpeg-turbo
     - jasper
 
   run:
@@ -29,7 +29,7 @@ requirements:
     - libtiff 4.0.*
     - numpy 1.9.*
     - libpng 1.6.*
-    - jpeg 9*
+    - libjpeg-turbo
     - jasper
 
 test:

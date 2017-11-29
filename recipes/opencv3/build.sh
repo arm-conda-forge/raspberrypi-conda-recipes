@@ -18,14 +18,14 @@ else
     INC_PYTHON="$PREFIX/include/python${PY_VER}"
 fi
 
-
-
-MACHINE_TYPE=`uname -m`
-if [ ${MACHINE_TYPE} == 'armv7l' ]; then
-    SET_SIMD="-DENABLE_NEON=ON -DENABLE_VFPV3=ON"
-else
-    SET_SIMD=""
-fi
+#
+#
+# MACHINE_TYPE=`uname -m`
+# if [ ${MACHINE_TYPE} == 'armv7l' ]; then
+#     SET_SIMD="-DENABLE_NEON=ON -DENABLE_VFPV3=ON"
+# else
+#     SET_SIMD=""
+# fi
 
 
 
@@ -118,8 +118,12 @@ cmake .. -LAH                                                             \
     $PYTHON_UNSET_INC                                                     \
     $PYTHON_UNSET_NUMPY                                                   \
     $PYTHON_UNSET_LIB                                                     \
-    $SET_SIMD                                                             \
-    $PYTHON_UNSET_SP
-
+    $PYTHON_UNSET_SP                                                      \
+    -DENABLE_NEON=ON -DENABLE_VFPV3=ON \
+    -DEXTRA_C_FLAGS=-mcpu=cortex-a7 \
+    -mfpu=neon-vfpv4 -ftree-vectorize \
+    -mfloat-abi=hard \
+    -DEXTRA_CXX_FLAGS=-mcpu=cortex-a7
+    
 make -j4
 make install
