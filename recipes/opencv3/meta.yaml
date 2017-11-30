@@ -1,7 +1,7 @@
 {% set version = "3.3.0" %}
 
 package:
-  name: opencv-simd-turbojpeg
+  name: opencv-simd-turbojpeg-tbb
   version: {{ version }}
 
 source:
@@ -18,7 +18,7 @@ requirements:
     - python
     - zlib 1.2.*
     - libtiff 4.0.*
-    - numpy 1.9.*
+    - numpy >=1.9.*
     - libpng 1.6.*
     - libjpeg-turbo
     - jasper
@@ -27,7 +27,7 @@ requirements:
     - python
     - zlib 1.2.*
     - libtiff 4.0.*
-    - numpy 1.9.*
+    - numpy >=1.9
     - libpng 1.6.*
     - libjpeg-turbo
     - jasper

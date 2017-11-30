@@ -27,34 +27,8 @@ else
     SET_SIMD=""
 fi
 
-echo "SPDIR=${SP_DIR}"
-
-# cd ../
-# mkdir build
-# cd build
-# export CFLAGS="-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard" # Notice here does not have -fPIC and -O3
-# export CXXFLAGS="-mcpu=cortex-a7 -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard" # Notice here does not have -fPIC and -O3
-# cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr/local
-# -DINSTALL_C_EXAMPLES=OFF -DINSTALL_PYTHON_EXAMPLES=OFF
-# -DOPENCV_EXTRA_MODULES_PATH=<path_to_opencv_contrib-3.1.0>/modules
-# -DBUILD_EXAMPLES=ON
-# -DWITH_FFMPEG=OFF
-# -DWITH_V4L=OFF
-# -DWITH_LIBV4L=OFF
-# -DENABLE_NEON=ON
-# -DEXTRA_C_FLAGS=-mcpu=cortex-a7
-# -mfpu=neon-vfpv4 -ftree-vectorize
-# -mfloat-abi=hard
-# -DEXTRA_CXX_FLAGS=-mcpu=cortex-a7
-# -mfpu=neon-vfpv4 -ftree-vectorize -mfloat-abi=hard
-# -DWITH_JPEG=ON
-# -DBUILD_JPEG=OFF
-# -DJPEG_INCLUDE_DIR=/opt/libjpeg-turbo/include/
-# -DJPEG_LIBRARY=/opt/libjpeg-turbo/lib32/libjpeg.a ..
-# make -j2 # You can use -j4, but my gcc crashed with -j4, you can test by yourself
-
-PYTHON_SET_LIBJPEGTURBO_INCLUDE="-DJPEG_INCLUDE_DIR=${SP_DIR}/libjpeg-turbo/include"
-PYTHON_SET_LIBJPEGTURBO="-DJPEG_LIBRARY=${LD_RUN_PATH}/libturbojpeg.a"
+# PYTHON_SET_LIBJPEGTURBO_INCLUDE="-DJPEG_INCLUDE_DIR=${SP_DIR}/libjpeg-turbo/include"
+# PYTHON_SET_LIBJPEGTURBO="-DJPEG_LIBRARY=${LD_RUN_PATH}/libturbojpeg.a"
 
 PYTHON_SET_FLAG="-DBUILD_opencv_python${PY_MAJOR}=1"
 PYTHON_SET_EXE="-DPYTHON${PY_MAJOR}_EXECUTABLE=${PYTHON}"
@@ -84,6 +58,7 @@ cmake .. -LAH                                                             \
     -DJPEG_LIBRARY=${LD_RUN_PATH}/libturbojpeg.a \
     -DWITH_JPEG=ON \
     -DBUILD_JPEG=OFF \
+    -DBUILD_WITH_TBB=1 \
     -DBUILD_TESTS=0                                                       \
     -DBUILD_DOCS=0                                                        \
     -DBUILD_PERF_TESTS=0                                                  \
@@ -123,7 +98,7 @@ cmake .. -LAH                                                             \
     $PYTHON_UNSET_INC                                                     \
     $PYTHON_UNSET_NUMPY                                                   \
     $PYTHON_UNSET_LIB                                                     \
-    $PYTHON_UNSET_SP 
+    $PYTHON_UNSET_SP
 
 
 make -j4
