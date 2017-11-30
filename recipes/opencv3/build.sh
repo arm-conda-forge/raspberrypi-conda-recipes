@@ -54,14 +54,14 @@ mkdir -p build
 cd build
 
 cmake .. -LAH                                                             \
-    # -DENABLE_NEON=1 \
-    # -DENABLE_VFPV3=1 \
-    # -DJPEG_INCLUDE_DIR="${SP_DIR}/libjpeg-turbo/include" \
-    # -DJPEG_LIBRARY=${LD_RUN_PATH}/libturbojpeg.a \
-    # -DWITH_JPEG=ON \
-    # -DBUILD_JPEG=OFF \
+    -DENABLE_NEON=1 \
+    -DENABLE_VFPV3=1 \
+    -DJPEG_INCLUDE_DIR="${SP_DIR}/libjpeg-turbo/include" \
+    -DJPEG_LIBRARY=${LD_RUN_PATH}/libturbojpeg.a \
+    -DWITH_JPEG=ON \
+    -DBUILD_JPEG=OFF \
     -DWITH_EIGEN=1 \
-    # -DBUILD_WITH_TBB=1 \
+    -DBUILD_WITH_TBB=1 \
     -DBUILD_TESTS=0                                                       \
     -DBUILD_DOCS=0                                                        \
     -DBUILD_PERF_TESTS=0                                                  \

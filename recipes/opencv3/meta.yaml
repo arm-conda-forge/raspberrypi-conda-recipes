@@ -16,9 +16,9 @@ build:
 
 requirements:
   build:
-    # apt-get install cmake
+    # apt-get install gcc cmake
     - python
-    - toolchain
+    # - toolchain
     - pkgconfig
     - eigen >=3.2
     - zlib 1.2.*
