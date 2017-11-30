@@ -61,7 +61,7 @@ cmake .. -LAH                                                             \
     -DWITH_JPEG=ON \
     -DBUILD_JPEG=OFF \
     -DWITH_EIGEN=1 \
-    -WITH_LIBV4L=1
+    -WITH_LIBV4L=1 \
     -DBUILD_WITH_TBB=1 \
     -DBUILD_TESTS=0                                                       \
     -DBUILD_DOCS=0                                                        \
