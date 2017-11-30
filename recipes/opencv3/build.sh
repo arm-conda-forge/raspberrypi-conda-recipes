@@ -58,7 +58,8 @@ cmake .. -LAH                                                             \
     -DJPEG_LIBRARY=${LD_RUN_PATH}/libturbojpeg.a \
     -DWITH_JPEG=ON \
     -DBUILD_JPEG=OFF \
-    -DBUILD_WITH_TBB=1 \
+    -DWITH_EIGEN=1 \
+    # -DBUILD_WITH_TBB=1 \
     -DBUILD_TESTS=0                                                       \
     -DBUILD_DOCS=0                                                        \
     -DBUILD_PERF_TESTS=0                                                  \
@@ -78,7 +79,7 @@ cmake .. -LAH                                                             \
     -DWITH_MATLAB=0                                                       \
     -DWITH_VTK=0                                                          \
     -DWITH_GPHOTO2=0                                                      \
-    -DWITH_LAPACK=0                                                       \
+    -DWITH_LAPACK=1                                                       \
     -DINSTALL_C_EXAMPLES=0                                                \
     -DCMAKE_BUILD_TYPE="Release"                                          \
     -DCMAKE_SKIP_RPATH:bool=ON                                            \
