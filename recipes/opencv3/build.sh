@@ -53,8 +53,8 @@ echo "SPDIR=${SP_DIR}"
 # -DJPEG_LIBRARY=/opt/libjpeg-turbo/lib32/libjpeg.a ..
 # make -j2 # You can use -j4, but my gcc crashed with -j4, you can test by yourself
 
-PYHON_SET_LIBJPEGTURBO="-DJPEG_INCLUDE_DIR=${SP_DIR}/libjpeg-turbo/include"
-PYHON_SET_LIBJPEGTURBO="-DJPEG_LIBRARY=${SP_DIR}/libjpeg-turbo/lib/"
+PYTHON_SET_LIBJPEGTURBO_INCLUDE="-DJPEG_INCLUDE_DIR=${SP_DIR}/libjpeg-turbo/include"
+PYTHON_SET_LIBJPEGTURBO="-DJPEG_LIBRARY=${LD_RUN_PATH}/libturbojpeg.a"
 
 PYTHON_SET_FLAG="-DBUILD_opencv_python${PY_MAJOR}=1"
 PYTHON_SET_EXE="-DPYTHON${PY_MAJOR}_EXECUTABLE=${PYTHON}"
@@ -80,6 +80,8 @@ cd build
 cmake .. -LAH                                                             \
     -DENABLE_NEON=1 \
     -DENABLE_VFPV3=1 \
+    -DJPEG_INCLUDE_DIR="${SP_DIR}/libjpeg-turbo/include" \
+    -DJPEG_LIBRARY=${LD_RUN_PATH}/libturbojpeg.a \
     -DWITH_JPEG=ON \
     -DBUILD_JPEG=OFF \
     -DBUILD_TESTS=0                                                       \
@@ -121,7 +123,8 @@ cmake .. -LAH                                                             \
     $PYTHON_UNSET_INC                                                     \
     $PYTHON_UNSET_NUMPY                                                   \
     $PYTHON_UNSET_LIB                                                     \
-    $PYTHON_UNSET_SP
+    $PYTHON_UNSET_SP 
+
 
 make -j4
 make install
